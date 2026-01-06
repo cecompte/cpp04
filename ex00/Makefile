@@ -8,7 +8,9 @@ INCLUDES		= -I.
 SRC				= main.cpp \
 					Animal.cpp \
 					Dog.cpp \
-					Cat.cpp
+					Cat.cpp \
+					WrongAnimal.cpp \
+					WrongCat.cpp
 
 # Objects
 OBJ_PATH		= obj/
