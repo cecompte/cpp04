@@ -30,3 +30,8 @@ Cat::~Cat(void)
     return ;
 }
 
+void    Cat::makeSound() const
+{
+    std::cout << "miaou\n";
+    return;
+}

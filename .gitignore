@@ -33,9 +33,7 @@
 *.lib
 
 # Executables
-*.exe
-*.out
-*.app
+animal
 
 # debug information files
 *.dwo

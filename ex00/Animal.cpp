@@ -44,5 +44,6 @@ std::string    Animal::getType() const
 
 void    Animal::makeSound() const
 {
-    
+    std::cout << "rrrrrrrr\n";
+    return;
 }

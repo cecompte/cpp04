@@ -30,3 +30,9 @@ Dog::~Dog(void)
     return ;
 }
 
+void    Dog::makeSound() const
+{
+    std::cout << "wouf\n";
+    return;
+}
+
