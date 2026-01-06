@@ -9,6 +9,7 @@ class Brain
         Brain(const Brain& other);
         Brain &operator=(const Brain &other);
         ~Brain();
+        void        setIdeas(std::string idea);
     private:
         std::string ideas[100];
 };

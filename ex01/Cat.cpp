@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 
 // Default constructor
-Cat::Cat(void) : Animal("Cat")
+Cat::Cat(void) : Animal("Cat"), catBrain(new Brain())
 {
     std::cout << "Cat default constructor called\n";
     return ;
@@ -27,6 +27,7 @@ Cat &Cat::operator=(const Cat &other)
 Cat::~Cat(void)
 {
     std::cout << "Cat destructor called\n";
+    delete catBrain;
     return ;
 }
 

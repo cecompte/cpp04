@@ -11,7 +11,8 @@ Brain::Brain(void)
 Brain::Brain(const Brain &other)
 {
     std::cout << "Brain copy consructor called\n";
-    (void) other;
+    for (int i = 0; i < 100; i++)
+        ideas[i] = other.ideas[i];
     return ;
 }
 
@@ -19,7 +20,11 @@ Brain::Brain(const Brain &other)
 Brain &Brain::operator=(const Brain &other)
 {
     std::cout << "Brain assignment operator called\n";
-    (void) other;
+    if (this != &other)
+    {
+        for (int i = 0; i < 100; i++)
+            ideas[i] = other.ideas[i];
+    }
     return (*this);
 }
 
@@ -28,5 +33,12 @@ Brain::~Brain(void)
 {
     std::cout << "Brain destructor called\n";
     return ;
+}
+
+void    Brain::setIdeas(std::string idea)
+{
+    for (int i = 0; i < 100; i++)
+        ideas[i] = idea;
+    return;
 }
 

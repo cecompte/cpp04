@@ -3,6 +3,7 @@
 
 # include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -12,6 +13,9 @@ class Cat : public Animal
         Cat &operator=(const Cat &other);
         ~Cat();
         void    makeSound() const;
+    private:
+        Brain*  catBrain;
+
 };
 
 #endif
