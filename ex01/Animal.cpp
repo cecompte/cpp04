@@ -17,14 +17,12 @@ Animal::Animal(std::string t) : type(t)
 // Copy constructor
 Animal::Animal(const Animal &other) : type(other.type)
 {
-    std::cout << "Animal copy consructor called\n";
     return ;
 }
 
 // Assignment operator overload
 Animal &Animal::operator=(const Animal &other)
 {
-    std::cout << "Animal assignment operator called\n";
     if (this != &other)
         this->type = other.type;
     return (*this);

@@ -6,11 +6,18 @@ Brain::Brain(void)
     std::cout << "Brain default constructor called\n";
     return ;
 }
+// Constructor with idea
+Brain::Brain(std::string idea)
+{
+    std::cout << "Brain constructor called with idea\n";
+    for (int i = 0; i < 100; i++)
+        ideas[i] = idea;
+    return ;
+}
 
 // Copy constructor
 Brain::Brain(const Brain &other)
 {
-    std::cout << "Brain copy consructor called\n";
     for (int i = 0; i < 100; i++)
         ideas[i] = other.ideas[i];
     return ;
@@ -19,7 +26,6 @@ Brain::Brain(const Brain &other)
 // Assignment operator overload
 Brain &Brain::operator=(const Brain &other)
 {
-    std::cout << "Brain assignment operator called\n";
     if (this != &other)
     {
         for (int i = 0; i < 100; i++)
@@ -42,3 +48,7 @@ void    Brain::setIdeas(std::string idea)
     return;
 }
 
+std::string Brain::getIdeas() const
+{
+    return(ideas[0]);
+}

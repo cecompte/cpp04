@@ -6,12 +6,17 @@ Dog::Dog(void) : Animal("Dog"), dogBrain(new Brain())
     std::cout << "Dog default constructor called\n";
     return ;
 }
+// Constructor with idea
+Dog::Dog(std::string idea) : Animal("Dog"), dogBrain(new Brain(idea))
+{
+    std::cout << "Dog constructor called with idea\n";
+    return ;
+}
 
 // Copy constructor
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &other) : Animal(other), dogBrain(new Brain(*other.dogBrain))
 {
-    std::cout << "Dog copy consructor called\n";
-    (void) other;
+    std::cout << "Dog copy constructor called\n";
     return ;
 }
 
@@ -19,7 +24,11 @@ Dog::Dog(const Dog &other)
 Dog &Dog::operator=(const Dog &other)
 {
     std::cout << "Dog assignment operator called\n";
-    (void) other;
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        *dogBrain = *other.dogBrain;
+    }
     return (*this);
 }
 
@@ -34,6 +43,17 @@ Dog::~Dog(void)
 void    Dog::makeSound() const
 {
     std::cout << "wouf\n";
+    return;
+}
+
+std::string    Dog::getIdeas() const
+{
+    return(dogBrain->getIdeas());
+}
+
+void    Dog::setIdeas(std::string idea)
+{
+    dogBrain->setIdeas(idea);
     return;
 }
 
