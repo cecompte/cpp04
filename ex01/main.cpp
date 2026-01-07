@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:47:17 by cecompte          #+#    #+#             */
-/*   Updated: 2026/01/07 15:09:06 by cecompte         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:10:25 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main()
 	std::cout << "\nCat3 thinks: """ << cat3.getIdeas() << """\n";
 	cat1 = cat3;
 	std::cout << "Cat1 (assigned as Cat3) thinks: """ << cat1.getIdeas() << """\n";
-	cat3.setIdeas("I love humans");
+	cat3.setIdeas("I tolerate humans");
 	std::cout << "Cat3 now thinks: """ << cat3.getIdeas() << """\n";
 	std::cout << "Cat1 thinks: """ << cat1.getIdeas() << """\n\n";
 
