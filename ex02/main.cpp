@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:47:17 by cecompte          #+#    #+#             */
-/*   Updated: 2026/01/07 15:45:54 by cecompte         ###   ########.fr       */
+/*   Updated: 2026/01/07 15:52:02 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ int main()
 	std::cout << "\n\n";
 	for (int i = 0; i < 4; i++)
 		delete animals[i];
+
+	// This should NOT compile (testing that AAnimal is abstract):
+	// AAnimal k("Cow");
 	return (0);
 }
