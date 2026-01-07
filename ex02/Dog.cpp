@@ -1,20 +1,20 @@
 #include "Dog.hpp"
 
 // Default constructor
-Dog::Dog(void) : Animal("Dog"), dogBrain(new Brain())
+Dog::Dog(void) : AAnimal("Dog"), dogBrain(new Brain())
 {
     std::cout << "Dog default constructor called\n";
     return ;
 }
 // Constructor with idea
-Dog::Dog(std::string idea) : Animal("Dog"), dogBrain(new Brain(idea))
+Dog::Dog(std::string idea) : AAnimal("Dog"), dogBrain(new Brain(idea))
 {
     std::cout << "Dog parametized constructor called\n";
     return ;
 }
 
 // Copy constructor
-Dog::Dog(const Dog &other) : Animal(other), dogBrain(new Brain(*other.dogBrain))
+Dog::Dog(const Dog &other) : AAnimal(other), dogBrain(new Brain(*other.dogBrain))
 {
     std::cout << "Dog copy constructor called\n";
     return ;
@@ -26,7 +26,7 @@ Dog &Dog::operator=(const Dog &other)
     std::cout << "Dog assignment operator called\n";
     if (this != &other)
     {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         *dogBrain = *other.dogBrain;
     }
     return (*this);
