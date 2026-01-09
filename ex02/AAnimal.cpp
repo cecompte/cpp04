@@ -14,20 +14,6 @@ AAnimal::AAnimal(std::string t) : type(t)
     return ;
 }
 
-// Copy constructor
-AAnimal::AAnimal(const AAnimal &other) : type(other.type)
-{
-    return ;
-}
-
-// Assignment operator overload
-AAnimal &AAnimal::operator=(const AAnimal &other)
-{
-    if (this != &other)
-        this->type = other.type;
-    return (*this);
-}
-
 // Destructor
 AAnimal::~AAnimal(void)
 {

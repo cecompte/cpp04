@@ -11,6 +11,8 @@ SRC				= main.cpp \
 					Ice.cpp \
 					ICharacter.cpp \
 					Character.cpp \
+					IMateriaSource.cpp \
+					MateriaSource.cpp
 
 # Objects
 OBJ_PATH		= obj/

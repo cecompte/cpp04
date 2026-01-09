@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 // Default constructor
 Character::Character(void) : ICharacter()
@@ -11,7 +12,7 @@ Character::Character(void) : ICharacter()
 }
 
 // Parametized constructor
-Character::Character(std::string const name)
+Character::Character(std::string const name) : ICharacter()
 {
     _name = name;
     for (int i = 0; i < 4; i++)
@@ -22,7 +23,7 @@ Character::Character(std::string const name)
 }
 
 // Copy constructor
-Character::Character(const Character &other) : ICharacter()
+Character::Character(const Character &other) : ICharacter(other)
 {
     _name = other._name;
 

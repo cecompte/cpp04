@@ -20,9 +20,4 @@ IMateriaSource &IMateriaSource::operator=(const IMateriaSource &other)
     return (*this);
 }
 
-// Destructor
-IMateriaSource::~IMateriaSource(void)
-{
-    return ;
-}
 

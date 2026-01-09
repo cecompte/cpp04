@@ -20,9 +20,4 @@ ICharacter &ICharacter::operator=(const ICharacter &other)
     return (*this);
 }
 
-// Destructor
-ICharacter::~ICharacter(void)
-{
-    return ;
-}
 

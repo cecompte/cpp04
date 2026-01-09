@@ -13,9 +13,8 @@ AMateria::AMateria(std::string const t) : type(t)
 }
 
 // Copy constructor
-AMateria::AMateria(const AMateria &other)
+AMateria::AMateria(const AMateria &other) : type(other.type)
 {
-    (void) other;
     return ;
 }
 
@@ -24,12 +23,6 @@ AMateria &AMateria::operator=(const AMateria &other)
 {
     (void) other;
     return (*this);
-}
-
-// Destructor
-AMateria::~AMateria(void)
-{
-    return ;
 }
 
 std::string const & AMateria::getType() const
