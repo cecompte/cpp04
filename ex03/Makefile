@@ -1,7 +1,7 @@
 CC				= c++
 CFLAGS			= -g3 -std=c++98 -Wall -Wextra -Werror -MMD -MP
 
-NAME			= animal
+NAME			= interface
 INCLUDES		= -I.
 
 # Sources
@@ -11,8 +11,6 @@ SRC				= main.cpp \
 					Ice.cpp \
 					ICharacter.cpp \
 					Character.cpp \
-					IMateriaSource.cpp \
-					MateriaSource.cpp
 
 # Objects
 OBJ_PATH		= obj/

@@ -3,14 +3,12 @@
 // Default constructor
 MateriaSource::MateriaSource(void)
 {
-    std::cout << "MateriaSource default constructor called\n";
     return ;
 }
 
 // Copy constructor
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
-    std::cout << "MateriaSource copy consructor called\n";
     (void) other;
     return ;
 }
@@ -18,7 +16,6 @@ MateriaSource::MateriaSource(const MateriaSource &other)
 // Assignment operator overload
 MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
-    std::cout << "MateriaSource assignment operator called\n";
     (void) other;
     return (*this);
 }
@@ -26,7 +23,6 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 // Destructor
 MateriaSource::~MateriaSource(void)
 {
-    std::cout << "MateriaSource destructor called\n";
     return ;
 }
 

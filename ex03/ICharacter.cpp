@@ -3,14 +3,12 @@
 // Default constructor
 ICharacter::ICharacter(void)
 {
-    std::cout << "ICharacter default constructor called\n";
     return ;
 }
 
 // Copy constructor
 ICharacter::ICharacter(const ICharacter &other)
 {
-    std::cout << "ICharacter copy consructor called\n";
     (void) other;
     return ;
 }
@@ -18,7 +16,6 @@ ICharacter::ICharacter(const ICharacter &other)
 // Assignment operator overload
 ICharacter &ICharacter::operator=(const ICharacter &other)
 {
-    std::cout << "ICharacter assignment operator called\n";
     (void) other;
     return (*this);
 }
@@ -26,7 +23,6 @@ ICharacter &ICharacter::operator=(const ICharacter &other)
 // Destructor
 ICharacter::~ICharacter(void)
 {
-    std::cout << "ICharacter destructor called\n";
     return ;
 }
 

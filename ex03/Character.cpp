@@ -7,7 +7,6 @@ Character::Character(void) : ICharacter()
         inventory[i] = NULL;
     floor = NULL;
     floorSize = 0;
-    std::cout << "Character default constructor called\n";
     return ;
 }
 
@@ -19,17 +18,24 @@ Character::Character(std::string const name)
         inventory[i] = NULL;
     floor = NULL;
     floorSize = 0;
-    std::cout << "Character " << _name << " constructor called\n";
     return ;
 }
 
 // Copy constructor
-Character::Character(const Character &other)
+Character::Character(const Character &other) : ICharacter()
 {
-    std::cout << "Character copy consructor called\n";
-
     _name = other._name;
 
+    //copy inventory
+    for (int i = 0; i < 4; i++)
+    {
+        if (other.inventory[i])
+            inventory[i] = other.inventory[i]->clone();
+        else
+            inventory[i] = NULL;
+    }
+    
+    // copy floor
     floorSize = other.floorSize;
     if (floorSize > 0)
     {
@@ -39,24 +45,39 @@ Character::Character(const Character &other)
     }
     else
         floor = NULL;
-
-    for (int i = 0; i < 4; i++)
-    {
-        if (other.inventory[i])
-            inventory[i] = other.inventory[i]->clone();
-        else
-            inventory[i] = NULL;
-    }
     return ;
 }
 
 // Assignment operator overload
 Character &Character::operator=(const Character &other)
 {
-    std::cout << "Character assignment operator called\n";
     if (this != &other)
     {
-        ICharacter::operator=(other);
+        _name = other._name;
+    
+        // delete then copy inventory
+        for (int i = 0; i < 4; i++)
+        {
+            delete inventory[i];
+            if (other.inventory[i])
+                inventory[i] = other.inventory[i]->clone();
+            else
+                inventory[i] = NULL;
+        }
+        
+        // delete then copy floor
+        floorSize = other.floorSize;
+        if (floorSize > 0)
+        {
+            for (int i = 0; i < floorSize; i++)
+		        delete floor[i];
+            delete[] floor;
+            floor = new AMateria*[floorSize];
+            for (int i = 0; i < floorSize; i++)
+                floor[i] = other.floor[i]->clone();
+        }
+        else
+            floor = NULL;
     }
     return (*this);
 }
@@ -64,7 +85,6 @@ Character &Character::operator=(const Character &other)
 // Destructor
 Character::~Character(void)
 {
-    std::cout << "Character destructor called\n";
     for (int i = 0; i < 4; i++)
 		delete inventory[i];
     for (int i = 0; i < floorSize; i++)
@@ -81,6 +101,8 @@ std::string const& Character::getName() const
 
 void    Character::equip(AMateria* m)
 {
+    if (m == NULL)
+        return ;
     for (int i = 0; i < 4; i++)
     {
         if (inventory[i] == NULL)
@@ -94,8 +116,10 @@ void    Character::equip(AMateria* m)
 void    Character::unequip(int idx)
 {
     if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
+    {
+        std::cout << "There is no materia at this index\n";
         return;
-
+    }
     int newSize = floorSize + 1;
     AMateria**   newFloor = new AMateria*[newSize];
 
@@ -107,3 +131,14 @@ void    Character::unequip(int idx)
     floor[floorSize - 1] = inventory[idx];
     inventory[idx] = NULL;
 }
+
+void    Character::use(int idx, ICharacter& target)
+{
+    if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
+    {
+        std::cout << "There is no materia at this index.\n";
+        return;
+    }
+    inventory[idx]->use(target);
+}
+

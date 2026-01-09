@@ -1,22 +1,20 @@
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 // Default constructor
 AMateria::AMateria(void)
 {
-    std::cout << "AMateria default constructor called\n";
     return ;
 }
 
 AMateria::AMateria(std::string const t) : type(t)
 {
-    std::cout << "AMateria parametized constructor called\n";
     return ;
 }
 
 // Copy constructor
 AMateria::AMateria(const AMateria &other)
 {
-    std::cout << "AMateria copy consructor called\n";
     (void) other;
     return ;
 }
@@ -24,7 +22,6 @@ AMateria::AMateria(const AMateria &other)
 // Assignment operator overload
 AMateria &AMateria::operator=(const AMateria &other)
 {
-    std::cout << "AMateria assignment operator called\n";
     (void) other;
     return (*this);
 }
@@ -32,7 +29,15 @@ AMateria &AMateria::operator=(const AMateria &other)
 // Destructor
 AMateria::~AMateria(void)
 {
-    std::cout << "AMateria destructor called\n";
     return ;
 }
 
+std::string const & AMateria::getType() const
+{
+    return type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "AMateria used on " << target.getName() << std::endl;
+}
