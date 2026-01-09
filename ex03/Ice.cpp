@@ -1,17 +1,16 @@
 #include "Ice.hpp"
 
 // Default constructor
-Ice::Ice(void)
+Ice::Ice(void) : AMateria("ice")
 {
     std::cout << "Ice default constructor called\n";
     return ;
 }
 
 // Copy constructor
-Ice::Ice(const Ice &other)
+Ice::Ice(const Ice &other) : AMateria(other)
 {
     std::cout << "Ice copy consructor called\n";
-    (void) other;
     return ;
 }
 
@@ -19,7 +18,8 @@ Ice::Ice(const Ice &other)
 Ice &Ice::operator=(const Ice &other)
 {
     std::cout << "Ice assignment operator called\n";
-    (void) other;
+    if (this != &other)
+        AMateria::operator=(other); 
     return (*this);
 }
 
@@ -28,5 +28,17 @@ Ice::~Ice(void)
 {
     std::cout << "Ice destructor called\n";
     return ;
+}
+
+// Member functions
+AMateria*  Ice::clone() const
+{
+    return new Ice(*this);
+}
+
+void    Ice::use(ICharacter& target)
+{
+    std::cout << "Cure: ""* heals " << target.getName()  << "'s wounds *""\n";
+    return;
 }
 

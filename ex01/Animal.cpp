@@ -1,27 +1,27 @@
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 
 // Default constructor
-AAnimal::AAnimal(void) : type("AAnimal")
+Animal::Animal(void) : type("Animal")
 {
-    std::cout << "AAnimal default constructor called\n";
+    std::cout << "Animal default constructor called\n";
     return ;
 }
 
 // Constructor with type
-AAnimal::AAnimal(std::string t) : type(t)
+Animal::Animal(std::string t) : type(t)
 {
-    std::cout << "AAnimal default constructor called\n";
+    std::cout << "Animal parametized constructor called\n";
     return ;
 }
 
 // Copy constructor
-AAnimal::AAnimal(const AAnimal &other) : type(other.type)
+Animal::Animal(const Animal &other) : type(other.type)
 {
     return ;
 }
 
 // Assignment operator overload
-AAnimal &AAnimal::operator=(const AAnimal &other)
+Animal &Animal::operator=(const Animal &other)
 {
     if (this != &other)
         this->type = other.type;
@@ -29,18 +29,18 @@ AAnimal &AAnimal::operator=(const AAnimal &other)
 }
 
 // Destructor
-AAnimal::~AAnimal(void)
+Animal::~Animal(void)
 {
-    std::cout << "AAnimal destructor called\n";
+    std::cout << "Animal destructor called\n";
     return ;
 }
 
-std::string    AAnimal::getType() const 
+std::string    Animal::getType() const 
 {
     return (type);
 }
 
-void    AAnimal::makeSound() const
+void    Animal::makeSound() const
 {
     std::cout << "rrrrrrrr\n";
     return;

@@ -7,6 +7,12 @@ AMateria::AMateria(void)
     return ;
 }
 
+AMateria::AMateria(std::string const t) : type(t)
+{
+    std::cout << "AMateria parametized constructor called\n";
+    return ;
+}
+
 // Copy constructor
 AMateria::AMateria(const AMateria &other)
 {

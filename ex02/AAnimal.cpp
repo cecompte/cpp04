@@ -10,7 +10,7 @@ AAnimal::AAnimal(void) : type("AAnimal")
 // Constructor with type
 AAnimal::AAnimal(std::string t) : type(t)
 {
-    std::cout << "AAnimal default constructor called\n";
+    std::cout << "AAnimal parametized constructor called\n";
     return ;
 }
 
