@@ -4,7 +4,7 @@
 MateriaSource::MateriaSource(void) : IMateriaSource()
 {
     for (int i = 0; i < 4; i++)
-        book[i] = NULL;
+        source[i] = NULL;
     return ;
 }
 
@@ -13,10 +13,10 @@ MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (other.book[i] != NULL)
-            book[i] = other.book[i]->clone();
+        if (other.source[i] != NULL)
+            source[i] = other.source[i]->clone();
         else
-            book[i] = NULL;
+            source[i] = NULL;
     }
     return ;
 }
@@ -28,11 +28,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
     {
         for (int i = 0; i < 4; i++)
         {
-            delete book[i];
-            if (other.book[i] != NULL)
-                book[i] = other.book[i]->clone();
+            delete source[i];
+            if (other.source[i] != NULL)
+                source[i] = other.source[i]->clone();
             else
-                book[i] = NULL;
+                source[i] = NULL;
         }
     }
     return (*this);
@@ -42,7 +42,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 MateriaSource::~MateriaSource(void)
 {
     for (int i = 0; i < 4; i++)
-        delete book[i];
+        delete source[i];
     return ;
 }
 
@@ -54,27 +54,28 @@ void MateriaSource::learnMateria(AMateria* m)
         return ;
     for (int i = 0; i < 4; i++)
     {
-        if (book[i] == NULL)
+        if (source[i] == NULL)
         {
-            book[i] = m->clone();
+            source[i] = m->clone();
             delete m;
             return;
         }
     }
+    std::cout << "No space left in materia source\n";
     delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if (book[0] == NULL)
+    if (source[0] == NULL)
     {
         std::cout << "No materia has been learned yet.\n";
         return NULL;
     }
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; source[i]; i++)
     {
-        if (book[i]->getType() == type)
-            return (book[i]);
+        if (source[i]->getType() == type)
+            return (source[i]);
     }
     std::cout << "Materia type " << type << " has not been learned yet.\n";
     return NULL;

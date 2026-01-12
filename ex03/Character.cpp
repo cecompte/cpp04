@@ -103,7 +103,10 @@ std::string const& Character::getName() const
 void    Character::equip(AMateria* m)
 {
     if (m == NULL)
-        return ;
+    {
+        std::cout << "Cannot equip with no materia.\n";
+        return;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (inventory[i] == NULL)
@@ -112,13 +115,19 @@ void    Character::equip(AMateria* m)
             return;
         }
     }
+    std::cout << _name <<"'s inventory is already full.\n";
 }
 
 void    Character::unequip(int idx)
 {
-    if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
+    if (idx < 0 || idx >= 4)
     {
-        std::cout << "There is no materia at this index\n";
+        std::cout << "Cannot unequip. Index " << idx << " is out of bounds.\n";
+        return;
+    }
+    if (inventory[idx] == NULL)
+    {
+        std::cout << "Cannot unequip. There is no materia at index " << idx << ".\n";
         return;
     }
     int newSize = floorSize + 1;
@@ -135,9 +144,14 @@ void    Character::unequip(int idx)
 
 void    Character::use(int idx, ICharacter& target)
 {
-    if (idx < 0 || idx >= 4 || inventory[idx] == NULL)
+    if (idx < 0 || idx >= 4)
     {
-        std::cout << "There is no materia at this index.\n";
+        std::cout << "Cannot use. Index " << idx << " is out of bounds.\n";
+        return;
+    }
+    if (inventory[idx] == NULL)
+    {
+        std::cout << "Cannot use. There is no materia at index " << idx << ".\n";
         return;
     }
     inventory[idx]->use(target);

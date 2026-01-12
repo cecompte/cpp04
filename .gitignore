@@ -34,6 +34,8 @@
 
 # Executables
 animal
+interface
+
 
 # debug information files
 *.dwo
