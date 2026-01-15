@@ -14,6 +14,22 @@ AAnimal::AAnimal(std::string t) : type(t)
     return ;
 }
 
+// Copy constructor
+AAnimal::AAnimal(const AAnimal &other) : type(other.type)
+{
+    std::cout << "AAnimal copy constructor called\n";
+    return ;
+}
+
+// Assignment operator overload
+AAnimal &AAnimal::operator=(const AAnimal &other)
+{
+    std::cout << "AAnimal assignment operator called\n";
+    if (this != &other)
+        type = other.type;
+    return (*this);
+}
+
 // Destructor
 AAnimal::~AAnimal(void)
 {
